@@ -19,7 +19,7 @@ import okhttp3.Headers
 import org.json.JSONArray
 
 
-
+var API_KEY= ""
 class BestMovieFragment: Fragment(), OnListFragmentInteractionListener {
     /*
      * Constructing the view
