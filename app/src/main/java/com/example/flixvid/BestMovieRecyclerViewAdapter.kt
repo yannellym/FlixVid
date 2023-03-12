@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 /**
- * [RecyclerView.Adapter] that can display a [Bestmovie] and makes a call to the
+ * [RecyclerView.Adapter] that can display a [BestMovie] and makes a call to the
  * specified [OnListFragmentInteractionListener].
  */
 class BestMovieRecyclerViewAdapter(
@@ -35,32 +35,29 @@ class BestMovieRecyclerViewAdapter(
         val mMovieDescription: TextView = mView.findViewById<View>(R.id.movie_description) as TextView
         val mMovieImage: ImageView = mView.findViewById<View>(R.id.movie_image) as ImageView
         override fun toString(): String {
-            return mBookTitle.toString() + " '" + mBookAuthor.text + "'" + mBookRanking.toString() + "'" + mBookDescription.text + "'" + mBookDescription.text + "'" + mBookImage
+            return mMovieTitle.toString() + " '" + "'" + mMovieRanking.toString() + "'" + mMovieDescription.text + "'" + mMovieDescription.text + "'" + mMovieImage
         }
     }
 
     /**
      * This lets us "bind" each Views in the ViewHolder to its' actual data!
      */
-    override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        val book = books[position]
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        val movie = movies[position]
 
-        holder.mItem = book
-        holder.mBookTitle.text = book.title
-        holder.mBookAuthor.text = book.author
-        holder.mBookTitle.text = book.title
-        holder.mBookAuthor.text = book.author
-        holder.mBookDescription.text = book.description
-        holder.mBookRanking.text = book.rank.toString()
+        holder.mItem = movie
+        holder.mMovieTitle.text = movie.title
+        holder.mMovieDescription.text = movie.description
+        holder.mMovieRanking.text = movie.rank.toString()
 
         Glide.with(holder.mView)
-            .load(book.bookImageUrl)
+            .load("https://image.tmdb.org/t/p/w500/" + movie.bookImageUrl)
             .centerInside()
-            .into(holder.mBookImage)
+            .into(holder.mMovieImage)
 
         holder.mView.setOnClickListener {
-            holder.mItem?.let { book ->
-                mListener?.onItemClick(book)
+            holder.mItem?.let {movie->
+                mListener?.onItemClick(movie)
             }
         }
     }
@@ -69,6 +66,7 @@ class BestMovieRecyclerViewAdapter(
      * Remember: RecyclerView adapters require a getItemCount() method.
      */
     override fun getItemCount(): Int {
-        return books.size
+        return movies.size
     }
+
 }

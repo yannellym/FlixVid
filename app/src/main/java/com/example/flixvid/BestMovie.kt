@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName
 
     class BestMovie {
         @SerializedName("vote_average")
-        var rank = 0
+        var rank = 0.0
 
         @JvmField
         @SerializedName("original_title")
