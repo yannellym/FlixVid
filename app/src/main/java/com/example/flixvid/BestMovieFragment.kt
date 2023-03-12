@@ -18,6 +18,8 @@ import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
 import org.json.JSONObject
 
+
+var API_KEY= ""
 class BestMovieFragment: Fragment(), OnListFragmentInteractionListener {
     /*
      * Constructing the view
@@ -45,7 +47,7 @@ class BestMovieFragment: Fragment(), OnListFragmentInteractionListener {
         // Create and set up an AsyncHTTPClient() here
         val client = AsyncHttpClient()
         val params = RequestParams()
-        params["api-key"] = ""
+        params["api-key"] = API_KEY
         // Using the client, perform the HTTP request
         client[
                 "https://api.themoviedb.org/3/movie/now_playing?api_key=<<api_key>>&language=en-US&page=1",
