@@ -7,21 +7,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.codepath.bestsellerlistapp.R.id
 
 /**
  * [RecyclerView.Adapter] that can display a [BestSellerBook] and makes a call to the
  * specified [OnListFragmentInteractionListener].
  */
 class BestMovieRecyclerViewAdapter(
-    private val books: List<BestSellerBook>,
+    private val books: List<BestMovie>,
     private val mListener: OnListFragmentInteractionListener?
 )
-    : RecyclerView.Adapter<BestSellerBooksRecyclerViewAdapter.BookViewHolder>()
+    : RecyclerView.Adapter<BestMovieRecyclerViewAdapter.BookViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_best_seller_book, parent, false)
+            .inflate(R.layout.fragment_best_movie, parent, false)
         return BookViewHolder(view)
     }
 
@@ -30,12 +29,12 @@ class BestMovieRecyclerViewAdapter(
      * (Yes, the same ones as in the XML layout files!)
      */
     inner class BookViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        var mItem: BestSellerBook? = null
-        val mBookTitle: TextView = mView.findViewById<View>(id.book_title) as TextView
-        val mBookAuthor: TextView = mView.findViewById<View>(id.book_author) as TextView
-        val mBookRanking: TextView = mView.findViewById<View>(id.ranking) as TextView
-        val mBookDescription: TextView = mView.findViewById<View>(id.book_description) as TextView
-        val mBookImage: ImageView = mView.findViewById<View>(id.book_image) as ImageView
+        var mItem: BestMovie? = null
+        val mBookTitle: TextView = mView.findViewById<View>(R.id.book_title) as TextView
+        val mBookAuthor: TextView = mView.findViewById<View>(R.id.book_author) as TextView
+        val mBookRanking: TextView = mView.findViewById<View>(R.id.ranking) as TextView
+        val mBookDescription: TextView = mView.findViewById<View>(R.id.book_description) as TextView
+        val mBookImage: ImageView = mView.findViewById<View>(R.id.book_image) as ImageView
         override fun toString(): String {
             return mBookTitle.toString() + " '" + mBookAuthor.text + "'" + mBookRanking.toString() + "'" + mBookDescription.text + "'" + mBookDescription.text + "'" + mBookImage
         }

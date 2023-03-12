@@ -2,7 +2,7 @@ package com.example.flixvid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.codepath.bestsellerlistapp.R.id
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +11,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val supportFragmentManager = supportFragmentManager
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(id.content, BestSellerBooksFragment(), null).commit()
+        fragmentTransaction.replace(R.id.content, BestMovieFragment(), null).commit()
     }
 }
