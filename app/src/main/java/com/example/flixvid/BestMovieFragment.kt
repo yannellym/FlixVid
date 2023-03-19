@@ -18,12 +18,12 @@ import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
 import org.json.JSONArray
 
-
-var API_KEY= ""
 class BestMovieFragment: Fragment(), OnListFragmentInteractionListener {
+
     /*
      * Constructing the view
      */
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,21 +36,22 @@ class BestMovieFragment: Fragment(), OnListFragmentInteractionListener {
         updateAdapter(progressBar, recyclerView)
         return view
     }
-
     /*
      * Updates the RecyclerView adapter with new data.  This is where the
      * networking magic happens!
      */
+
     private fun updateAdapter(progressBar: ContentLoadingProgressBar, recyclerView: RecyclerView) {
         progressBar.show()
 
         // Create and set up an AsyncHTTPClient() here
         val client = AsyncHttpClient()
         val params = RequestParams()
-        params["api_key"] = API_KEY
+
+        params["api_key"] = BuildConfig.API_KEY
         // Using the client, perform the HTTP request
         client[
-                "https://api.themoviedb.org/3/movie/now_playing",
+                "https://api.themoviedb.org/3/trending/movie/week",
                 params,
                 object : JsonHttpResponseHandler()
 
