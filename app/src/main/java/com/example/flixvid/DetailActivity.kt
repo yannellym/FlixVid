@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 
 private const val TAG = "DetailsFragment"
 class DetailsActivity : Activity() {
@@ -35,6 +37,7 @@ class DetailsActivity : Activity() {
         // Load the media image
         Glide.with(this)
             .load("https://image.tmdb.org/t/p/w500/" + movie.movieImageUrl)
+            .apply(RequestOptions.bitmapTransform( RoundedCorners(40)))
             .into(mainImage)
     }
 

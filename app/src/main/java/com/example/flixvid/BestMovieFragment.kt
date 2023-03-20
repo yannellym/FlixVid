@@ -101,14 +101,14 @@ class BestMovieFragment: Fragment(), OnListFragmentInteractionListener {
      * What happens when a particular movie is clicked.
      */
     override fun onItemClick(item: BestMovie) {
-        Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()
+        // Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()
         val intent = Intent(context, DetailsActivity::class.java)
         intent.putExtra("MOVIE_EXTRA", item)
         context?.startActivity(intent)
 
     }
     override fun onMovieClick(item: BestMovie) {
-        Toast.makeText(context, "title: " +  item?.title, Toast.LENGTH_LONG).show()
+        // Toast.makeText(context, "title: " +  item?.title, Toast.LENGTH_LONG).show()
 //
 ////        intent.putExtra("movie", item)
 ////        startActivity(intent)

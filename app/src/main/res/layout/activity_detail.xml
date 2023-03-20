@@ -29,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.666" />
 
     <TextView
         android:id="@+id/releaseDateTextView"
@@ -42,7 +42,7 @@
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.933" />
 
     <TextView
         android:id="@+id/voteTextView"
@@ -64,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginEnd="40dp"
+        android:textStyle="bold"
         android:text="Adult Movie: "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/AdultTextView"
@@ -79,6 +80,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
         android:text="Release Date:"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/releaseDateTextView"
         app:layout_constraintHorizontal_bias="0.027"
@@ -92,10 +94,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Votes:"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/releaseTitleTextView"
-        app:layout_constraintVertical_bias="0.012" />
+        app:layout_constraintVertical_bias="0.036" />
 </androidx.constraintlayout.widget.ConstraintLayout>

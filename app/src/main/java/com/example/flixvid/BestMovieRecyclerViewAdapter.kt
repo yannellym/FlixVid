@@ -9,6 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterInside
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 
 /**
  * [RecyclerView.Adapter] that can display a [BestMovie] and makes a call to the
@@ -59,7 +62,7 @@ class BestMovieRecyclerViewAdapter(
 
         Glide.with(holder.mView)
             .load("https://image.tmdb.org/t/p/w500/" + movie.movieImageUrl)
-            .centerInside()
+            .transform(CenterInside(),RoundedCorners(44))
             .into(holder.mMovieImage)
 
         holder.mView.setOnClickListener {
