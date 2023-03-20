@@ -1,5 +1,6 @@
 package com.example.flixvid
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,12 +8,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 private const val TAG = "DetailsFragment"
-class DetailsFragment : Fragment() {
+class DetailsActivity : Activity() {
     private lateinit var releaseDateTextView: TextView
     private lateinit var adultTextView: TextView
     private lateinit var voteCountTextView: TextView
 
-    override fun onCreateView(
+    fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
