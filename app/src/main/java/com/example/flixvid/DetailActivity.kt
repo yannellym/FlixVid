@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 private const val TAG = "DetailsFragment"
@@ -12,24 +13,23 @@ class DetailsActivity : Activity() {
     private lateinit var releaseDateTextView: TextView
     private lateinit var adultTextView: TextView
     private lateinit var voteCountTextView: TextView
+    private lateinit var mainImage: ImageView
 
-    fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        val view = inflater.inflate(R.layout.activity_detail, container, false)
-        adultTextView = view.findViewById(R.id.adultTitleTextView)
-        releaseDateTextView = view.findViewById(R.id.releaseDateTextView)
-        voteCountTextView = view.findViewById(R.id.voteTitleTextView)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_detail)
 
-        return view
+        adultTextView = findViewById(R.id.AdultTextView)
+        releaseDateTextView = findViewById(R.id.releaseDateTextView)
+        voteCountTextView = findViewById(R.id.voteTextView)
+        mainImage = findViewById(R.id.imageView2)
+
+        val movie = intent.getSerializableExtra(MOVIE_EXTRA) as BestMovie
+
+        releaseDateTextView.text = movie.releaseDate
+        adultTextView.text = movie.adultMovie
+        voteCountTextView.text = movie.voteCount
+
     }
 
-    fun displayDetails(title: String, releaseDate: String, adult: Boolean, voteCount: Int) {
-        adultTextView.text = title
-        releaseDateTextView.text = "Release Date: $releaseDate"
-        adultTextView.text = "Adult: ${if (adult) "Yes" else "No"}"
-        voteCountTextView.text = "Vote Count: $voteCount"
-    }
 }

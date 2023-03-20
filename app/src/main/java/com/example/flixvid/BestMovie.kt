@@ -25,11 +25,11 @@ import kotlinx.serialization.Serializable
 
 
         @SerializedName("backdrop_path")
-        var bookImageUrl: String? = null,
+        var movieImageUrl: String? = null,
         @SerializedName("overview")
         var description: String? = null,
 
-        @SerializedName("release_data")
+        @SerializedName("release_date")
         var releaseDate: String? = null,
 
         @SerializedName("vote_count")
@@ -40,7 +40,7 @@ import kotlinx.serialization.Serializable
 
         )
         : java.io.Serializable {
-        val mediaImageUrl = "https://www.nytimes.com/${bookImageUrl}"
+        val mediaImageUrl = "https://www.nytimes.com/${movieImageUrl}"
 
         @Keep
         @Serializable

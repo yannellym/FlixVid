@@ -58,7 +58,7 @@ class BestMovieRecyclerViewAdapter(
 
 
         Glide.with(holder.mView)
-            .load("https://image.tmdb.org/t/p/w500/" + movie.bookImageUrl)
+            .load("https://image.tmdb.org/t/p/w500/" + movie.movieImageUrl)
             .centerInside()
             .into(holder.mMovieImage)
 
