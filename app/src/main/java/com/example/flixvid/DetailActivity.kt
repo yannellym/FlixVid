@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+
 private const val TAG = "DetailsFragment"
 class DetailsActivity : Activity() {
     private lateinit var releaseDateTextView: TextView
@@ -30,6 +32,10 @@ class DetailsActivity : Activity() {
         adultTextView.text = movie.adultMovie
         voteCountTextView.text = movie.voteCount
 
+        // Load the media image
+        Glide.with(this)
+            .load("https://image.tmdb.org/t/p/w500/" + movie.movieImageUrl)
+            .into(mainImage)
     }
 
 }

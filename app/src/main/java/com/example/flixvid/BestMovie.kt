@@ -40,7 +40,7 @@ import kotlinx.serialization.Serializable
 
         )
         : java.io.Serializable {
-        val mediaImageUrl = "https://www.nytimes.com/${movieImageUrl}"
+        val mediaImageUrl = "https://image.tmdb.org/t/p/w500/${movieImageUrl}"
 
         @Keep
         @Serializable
