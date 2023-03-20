@@ -1,5 +1,7 @@
 package com.example.flixvid
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,10 @@ import com.bumptech.glide.Glide
  * [RecyclerView.Adapter] that can display a [BestMovie] and makes a call to the
  * specified [OnListFragmentInteractionListener].
  */
+
+
+private const val TAG = "BestMovieRecyclerViewAdapter"
+
 class BestMovieRecyclerViewAdapter(
     private val movies: List<BestMovie>,
     private val mListener: OnListFragmentInteractionListener?
@@ -44,11 +50,13 @@ class BestMovieRecyclerViewAdapter(
      */
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movies[position]
+
         holder.mItem = movie
-        holder.mMovieTitle.text = movie.title
         holder.mMovieTitle.text = movie.title
         holder.mMovieDescription.text = movie.description
         holder.mMovieRanking.text = movie.rank.toString()
+
+
         Glide.with(holder.mView)
             .load("https://image.tmdb.org/t/p/w500/" + movie.bookImageUrl)
             .centerInside()
@@ -57,14 +65,17 @@ class BestMovieRecyclerViewAdapter(
         holder.mView.setOnClickListener {
             holder.mItem?.let {movie->
                 mListener?.onItemClick(movie)
+                mListener?.onMovieClick(movie)
             }
         }
     }
+
     /**
      * Remember: RecyclerView adapters require a getItemCount() method.
      */
     override fun getItemCount(): Int {
         return movies.size
     }
+
 
 }

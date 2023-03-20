@@ -10,5 +10,5 @@ package com.example.flixvid
 interface OnListFragmentInteractionListener {
     fun onItemClick(item: BestMovie)
     //new activity to display the movie details
-//    fun onMovieClick(movie: BestMovie)
+    fun onMovieClick(movie: BestMovie)
 }

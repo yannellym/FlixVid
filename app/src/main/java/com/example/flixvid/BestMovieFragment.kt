@@ -1,5 +1,6 @@
 package com.example.flixvid
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,7 +18,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
 import org.json.JSONArray
-
+const val MOVIE_EXTRA = "MOVIE_EXTRA"
+private const val TAG = "BestMovieFragment"
 class BestMovieFragment: Fragment(), OnListFragmentInteractionListener {
 
     /*
@@ -100,6 +102,16 @@ class BestMovieFragment: Fragment(), OnListFragmentInteractionListener {
      */
     override fun onItemClick(item: BestMovie) {
         Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()
+        val intent = Intent(context, DetailsFragment::class.java)
+        intent.putExtra("MOVIE_EXTRA", item)
+
+    }
+    override fun onMovieClick(item: BestMovie) {
+        Toast.makeText(context, "title: " +  item?.title, Toast.LENGTH_LONG).show()
+//        c
+////        intent.putExtra("movie", item)
+////        startActivity(intent)
+
     }
 
 }
